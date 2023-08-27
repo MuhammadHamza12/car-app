@@ -100,7 +100,7 @@ export const cars = [
     doors: 4,
     fuelType: "Petrol",
     hybrid: false,
-    electric: false,
+    electric: "No",
     averageMpg: 28,
     topSpeedMph: 110,
     airbags: true,
@@ -124,7 +124,7 @@ export const cars = [
     doors: 4,
     fuelType: "Petrol / Diesel",
     hybrid: false,
-    electric: false,
+    electric: "No",
     averageMpg: 25,
     topSpeedMph: 130,
     airbags: true,
@@ -148,7 +148,7 @@ export const cars = [
     doors: 4,
     fuelType: "Petrol / Hybrid",
     hybrid: true,
-    electric: false,
+    electric: "No",
     averageMpg: 32,
     topSpeedMph: 120,
     airbags: true,
@@ -173,7 +173,7 @@ export const cars = [
     doors: 4,
     fuelType: "Electric",
     hybrid: false,
-    electric: true,
+    electric: "Yes",
     averageMpg: "Equivalent to over 100 MPG",
     topSpeedMph: 140,
     airbags: true,
@@ -189,9 +189,5 @@ export const cars = [
     ],
     imageURL: "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-05/220516-tesla-mn-1210-5e91e9.jpg",
   },
-  
-  
-  
-  
   // Add more cars here...
 ];
