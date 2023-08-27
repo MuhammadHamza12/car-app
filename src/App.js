@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import {
+  AppContainer,
+  TypesContainer
+} from "./App.styles";
+import backgroundImage from "./assets/grage_auto.jpeg";
+import Slider from "./components/atoms/Slider/Slider";
+import SearchForm from "./components/organisms/SearchForm/SearchForm";
+import ShowInformation from "./components/organisms/ShowInformation/ShowInformation";
 
+// NOTE: Main entry point of the application
 function App() {
+  /**
+   * Component States
+   */
+  const [sliderVisible, setSliderVisible] = useState(false);
+  const [selectedCar, setSelectedCar] = useState({});
+  const [selectCarType, setSelectCarType] = useState("default");
+  const [isTypeSelected, setIsTypeSelected] = useState(false);
+  /**
+   * End of Component States
+   */
+
+  /**
+   * NOTE: Responsible of opening and closing side panel.
+   */
+  const toggleSlider = () => {
+    if (selectCarType === "default") return setIsTypeSelected(true);
+
+    setSliderVisible(!sliderVisible);
+    setIsTypeSelected(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <AppContainer imageUrl={backgroundImage}>
+      <TypesContainer>
+        <SearchForm
+          isTypeSelected={isTypeSelected}
+          selectCarType={selectCarType}
+          setSelectCarType={setSelectCarType}
+          setSelectedCar={setSelectedCar}
+          toggleSlider={toggleSlider}
+        />
+        <Slider
+          selectedData={selectedCar}
+          toggleSlider={toggleSlider}
+          sliderVisible={sliderVisible}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <ShowInformation selectedCar={selectedCar} />
+        </Slider>
+      </TypesContainer>
+    </AppContainer>
   );
 }
 
